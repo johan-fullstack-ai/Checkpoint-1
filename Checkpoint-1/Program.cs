@@ -13,7 +13,9 @@ while (true)
 
     if (string.IsNullOrWhiteSpace(input))
     {
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("Du får inte ange ett tomt värde");
+        Console.ResetColor();
         continue;
     }
 
@@ -26,7 +28,9 @@ while (true)
     string[] parts = input.Split('-');
     if (parts.Length != 2)
     {
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("Felaktigt format: produkten måste innehålla ett bindestreck");
+        Console.ResetColor();
         continue;
     }
 
@@ -36,7 +40,9 @@ while (true)
     // Kontrollera vänstra delen: endast bokstäver
     if (left.Length == 0)
     {
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("Felaktigt format på vänstra delen av produktnumret");
+        Console.ResetColor();
         continue;
     }
 
@@ -52,7 +58,9 @@ while (true)
 
     if (!onlyLetters)
     {
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("Felaktigt format på vänstra delen av produktnumret");
+        Console.ResetColor();
         continue;
     }
 
@@ -60,14 +68,18 @@ while (true)
     bool isNumber = int.TryParse(right, out int number);
     if (!isNumber)
     {
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("Felaktigt format på högra delen av produktnumret");
+        Console.ResetColor();
         continue;
     }
 
     // Kontrollera intervall
     if (number < 200 || number > 500)
     {
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("Den numeriska delen måste vara mellan 200 och 500");
+        Console.ResetColor();
         continue;
     }
 
